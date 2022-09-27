@@ -17,7 +17,11 @@ Calculates the date of `n` minutes from the given date, returning its string rep
 ```js
 const addMinutesToDate = (date, n) => {
   const d = new Date(date);
-  d.setTime(d.getTime() + n * 60000);
+  if (n>0){
+      d.setTime(d.getTime() + n * 60000 +8*3600000);
+  }else {
+      d.setTime(d.getTime() + n * 60000);
+  }
   return d.toISOString().split('.')[0].replace('T',' ');
 };
 ```
